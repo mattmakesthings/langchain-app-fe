@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  /* padding: 6rem; */
+  /* min-height: 100vh; */
 }
 
 .description {
@@ -92,7 +92,7 @@
   background: var(--primary-glow);
   width: 240px;
   height: 180px;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .center::before,
@@ -198,7 +198,7 @@
       transparent 0%,
       rgb(var(--background-end-rgb)) 40%
     );
-    z-index: 1;
+    /* z-index: 1; */
   }
 }
 
