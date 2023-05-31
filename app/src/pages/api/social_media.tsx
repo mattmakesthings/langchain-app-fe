@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Sends a HTTP bad request error code
       return res.status(400).json({ data: 'First or last name not found' });
     }
-    const endpoint = 'http://127.0.0.1:3000/social_media'
+    const endpoint = process.env.BE_BASE_URL + '/social_media'
     const newParams = new URLSearchParams(body)
     const paramsString = newParams.toString()
     const new_endpoint = endpoint + "?" + paramsString

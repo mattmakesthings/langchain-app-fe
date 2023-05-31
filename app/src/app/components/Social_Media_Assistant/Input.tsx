@@ -10,16 +10,15 @@ export default function DescriptionBox() {
     // Handles the submit event on form submit.
 
     const [postContent, setPostContent] = useState('');
-    const [responseSrc, setResponseSrc] = useState("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=");
+    const [responseSrc, setResponseSrc] = useState('');
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       // Stop the form from submitting and refreshing the page.
       event.preventDefault();
    
       // Get data from the form.
-      const form_data = event.target
       const data = {
-        product_description: (event.target as any).product_description.value,
+        product_description:  (document.getElementById("product_description") as HTMLInputElement).value,
       };
    
       // Send the data to the server in JSON format.
@@ -58,6 +57,7 @@ export default function DescriptionBox() {
     return (
       // We pass the event to the handleSubmit() function on submit.
       <form onSubmit={handleSubmit}>
+        <div className={styles.form_group}>
         <label htmlFor="first">Generate a social media marketing post</label>
         <textarea 
             className={styles.prompt_box}
@@ -65,7 +65,7 @@ export default function DescriptionBox() {
             name="product_description"
             placeholder="Describe what you're trying to market"
              required />
-        <button type="submit" className={styles.submit}>Submit</button>
+        <button type="submit" className={styles.submit}>Generate</button>
         <div></div>
         <div></div>
         <textarea 
@@ -76,14 +76,8 @@ export default function DescriptionBox() {
             placeholder="Response Area"    
         >
         </textarea>
-        <Image
-            id="response_image" 
-            src={responseSrc}
-            alt="" 
-            className={styles.image} 
-            width={600}
-            height={600}
-            />
+        <img className={styles.image} id="response_image" src={responseSrc}></img>
+        </div>
       </form>
     );
   }

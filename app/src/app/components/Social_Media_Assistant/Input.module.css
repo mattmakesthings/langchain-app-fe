@@ -20,6 +20,7 @@
 	padding: 10px 30px;
     font-size: 12px;
     cursor: pointer;
+    max-width: 600px;
     background-color: #4986ff;
     height: 40px;
 	border-radius: 20px;
@@ -38,3 +39,7 @@
     z-index: -1;
 }
 
+.form_group {
+    display: flex;
+    flex-direction: column;
+  }

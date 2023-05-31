@@ -18,22 +18,8 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-<!-- ## Docker commands
+## Docker commands
 ```bash
 docker build -t langchain_app_fe . # build the image
 docker run -p 3001:3000 langchain_app_fe # run the image
-``` -->
-
-## Deployment via [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html):
-
-``` bash
-sam build
-sam deploy --guided
 ```
-
-Once deployed you'll need to set the environment variable.
-I did this through the AWS Console.
-
-``` bash
-BE_BASE_URL= <url of BE lambda>
-``` 

@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+// const nextConfig = {}
 
 // module.exports = {
 //     async rewrites() {
@@ -11,3 +11,13 @@ const nextConfig = {}
 //         ]
 //       },
 //   };
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    reactStrictMode: true,
+    swcMinify: true,
+    output: 'standalone',
+    compress: false,
+  }
+  
+  module.exports = nextConfig
