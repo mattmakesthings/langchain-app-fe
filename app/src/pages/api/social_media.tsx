@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
    
     // Optional logging to see the responses
     // in the command line where next.js app is running.
-    console.log('body: ', body);
+    // console.log('body: ', body);
    
     // Guard clause checks for first and last name,
     // and returns early if they are not found
@@ -16,36 +16,32 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // Get caption
-    const endpoint = process.env.BE_BASE_URL + '/social_media'
-    const paramsString = new URLSearchParams(body).toString()
-    const caption_response = await fetch( endpoint + '/caption' + "?" + paramsString);
+    console.log(
+      "after checking description"
+    )
+    const endpoint = process.env.BE_BASE_URL + '/social_media/caption'
+    const paramsString = new URLSearchParams({
+      "product_description": body.product_description
+    }).toString()
+    const caption_response = await fetch( endpoint  + "?" + paramsString);
     const caption_result = await caption_response.json();
 
-    var image_result = null
-    var image_response = null
-    if (!body.image_data){
-      image_response = await fetch( endpoint + '/image' + "?" + paramsString);
-      image_result = await image_response.json();
-    } else {
-      console.log(endpoint + '/image_variations')
-      image_response = await fetch( 
-        endpoint + '/image_variations',
-        {
-          'body': body.image_data,
-          'headers': {
-            'Content-Type': 'image/png'
-          },
-          'method': 'POST',
-        }
-      );
-      image_result = await image_response.json();
-    }
+    // console.log(
+    //   "after getting caption"
+    // )
+
+    // var image_result = null
+    // var image_response = null
+
+    // image_response = await fetch( endpoint + '/image' + "?" + paramsString);
+    // image_result = await image_response.json();
+    
     console.log(caption_result)
-    console.log(image_result)
+    // console.log(image_result)
    
     // Sends a HTTP success code
     res.status(200).json({
       "response": caption_result.response,
-      "images": image_result.images
+      // "images": image_result.images
     });
   }
