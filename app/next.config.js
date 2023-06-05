@@ -13,6 +13,7 @@
 //   };
 
 /** @type {import('next').NextConfig} */
+// Change this back for deployment
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
